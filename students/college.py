@@ -23,3 +23,8 @@ class College:
 
     def get_students_sorted_by_score(self):
         return list(self.__sorted_score_students)
+
+    def get_students_by_scores_between(self, min_score, max_score):
+        return list(
+            self.__sorted_score_students.irange_key((min_score, 0), (max_score, float('inf')), inclusive=(True, True),
+                                                    reverse=False))
